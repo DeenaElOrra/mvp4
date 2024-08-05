@@ -16,6 +16,9 @@ st.set_page_config(
 st.title('ChatBot Ricardo')
 st.sidebar.success('Select a page above')
 
+with st.chat_message(name="assistant", avatar='🔷'):
+    st.write('Olá, como posso ajudar?')
+
 #initialize chat histry
 if "historico_mensagens_basaglia" not in st.session_state:
     st.session_state.historico_mensagens_basaglia = []
