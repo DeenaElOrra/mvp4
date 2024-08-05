@@ -16,9 +16,6 @@ st.set_page_config(
 st.title('ChatBot Ricardo')
 st.sidebar.success('Select a page above')
 
-with st.chat_message(name="assistant", avatar='🔷'):
-    st.write('Olá, como posso ajudar?')
-
 #initialize chat histry
 if "historico_mensagens_basaglia" not in st.session_state:
     st.session_state.historico_mensagens_basaglia = []
@@ -26,6 +23,9 @@ if "historico_mensagens_basaglia" not in st.session_state:
 for mensagem in st.session_state.historico_mensagens_basaglia:
     with st.chat_message(mensagem["role"]):
         st.markdown(mensagem["content"])
+
+with st.chat_message(name="assistant", avatar='🔷'):
+    st.write('Olá, como posso ajudar?')
 
 #caracteristicas texto linkedin
 biografia_basa = 'Ricardo Basaglia é uma figura proeminente no setor de recrutamento e liderança no Brasil, conhecido por sua vasta experiência e impacto significativo na transformação de carreiras e vidas. Atualmente, ele ocupa o cargo de CEO do PageGroup no Brasil, liderando as operações da Michael Page, Page Personnel, Page Executive, Page Outsourcing e Page Interim. Formação Acadêmica e Início de Carreira.Ricardo Basaglia possui uma formação acadêmica robusta, com um Mestrado em Administração de Empresas pela FGV/EAESP e uma extensão em Behavioral Science of Management pela Universidade de Yale. Ele iniciou sua trajetória acadêmica em Processamento de Dados na ETEC e no Centro Universitário Rio Preto, e posteriormente fez uma especialização na PUC-Campinas. Basaglia também estudou em renomadas instituições internacionais, como a Harvard Business School e a Yale School of Management.Sua carreira profissional começou na área de tecnologia, onde ele se destacou em projetos de transformação digital em grandes corporações. Aos 20 anos, Basaglia criou um portal de internet, que chamou a atenção de investidores interessados em comprar o projeto, marcando sua entrada no mercado corporativo.Trajetória ProfissionalApós ingressar no mercado corporativo, Ricardo Basaglia trabalhou no Sistema SETA de Ensino, participando de iniciativas de transformação digital. Em 2001, atuou como gerente de projetos de internet na Vivo e, em 2003, migrou para o setor comercial da Spread. Foi em 2007 que sua carreira deu uma guinada significativa, quando foi convidado para atuar como diretor executivo da Page Personnel, parte do PageGroup no Brasil. Como diretor executivo, Basaglia foi fundamental na expansão dos negócios e na abertura de novos escritórios pelo país. Sua habilidade em liderar e formar equipes fortes em diversos tipos de companhias o consolidou como o headhunter mais acompanhado do Brasil nas redes sociais. Em reconhecimento ao seu trabalho, ele foi promovido a CEO do PageGroup no Brasil, onde lidera as operações de todas as marcas do grupo.Contribuições e Impacto. Ricardo Basaglia é também autor do best-seller “Lugar de Potência: Lições de carreira e liderança de mais de 10 mil entrevistas, cafés e reuniões”, onde compartilha insights valiosos de sua extensa experiência. Além de seu trabalho no PageGroup, ele é Mentor em Gestão de Pessoas no G4 Educação e palestrante em diversos eventos sobre carreira e liderança. Basaglia acredita firmemente que o conhecimento só é transformador quando compartilhado. Ele se dedica a mostrar os comportamentos, habilidades, hábitos e crenças de grandes líderes do Brasil e do mundo, ajudando mais pessoas a alcançarem seu potencial máximo. Ele compartilha esses insights com mais de 3 milhões de pessoas através de suas redes sociais, colunas no Estadão e na Exame, na Rádio Eldorado, e no seu podcast “Lugar de Potência”. Filosofia de Liderança. A capacidade de adaptação é um dos principais ativos para qualquer profissional em um mundo dinâmico e imprevisível. Ricardo Basaglia enfatiza a importância da liderança em tempos de mudança, promovendo uma cultura de inovação dentro das organizações que inspira equipes a pensar fora da caixa. Ele acredita que a verdadeira transformação vem do impacto positivo na vida das pessoas, e isso guia sua abordagem em todas as suas iniciativas. Reconhecimentos e Futuro Ricardo Basaglia continua a ser uma figura influente no mundo corporativo, liderando a Michael Page, a maior empresa de recrutamento da América Latina, e contribuindo significativamente para a formação de líderes e profissionais em diversas indústrias. Sua visão estratégica e compromisso com o desenvolvimento de talentos garantem que ele continuará a ser um líder destacado e uma inspiração para muitos nos próximos anos. Essa biografia detalhada combina informações de várias fontes para fornecer uma visão abrangente sobre Ricardo Basaglia, destacando sua trajetória acadêmica, carreira, contribuições e filosofia de liderança.'
@@ -94,7 +94,7 @@ if prompt:
     resposta = response.choices[0].message.content
     st.session_state.historico_mensagens_basaglia.append({"role": "assistant", "content": resposta})
 
-    with st.chat_message('assistant'):
+    with st.chat_message('assistant', avatar='🔷'):
         st.markdown(resposta)
 
 
