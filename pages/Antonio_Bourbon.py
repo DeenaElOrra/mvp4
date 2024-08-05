@@ -19,6 +19,9 @@ for mensagem in st.session_state.historico_mensagens_bourbon:
     with st.chat_message(mensagem["role"]):
         st.markdown(mensagem["content"])
 
+with st.chat_message(name="assistant", avatar='🔷'):
+    st.write('Olá, como posso ajudar?')
+
 #caracteristicas texto linkedin
 biografia_analise = """
                 - Contexto
@@ -160,7 +163,7 @@ if prompt:
     resposta = response.choices[0].message.content
     st.session_state.historico_mensagens_bourbon.append({"role": "assistant", "content": resposta})
 
-    with st.chat_message('assistant'):
+    with st.chat_message('assistant', avatar='🔷'):
         st.markdown(resposta)
 
 
